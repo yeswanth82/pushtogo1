@@ -28,7 +28,7 @@ namespace PushtoGo.Controllers
 
         public AccountController()
         {
-            // Test1
+            // Test2
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
