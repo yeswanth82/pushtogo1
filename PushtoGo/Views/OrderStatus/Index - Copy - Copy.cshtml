@@ -1,0 +1,83 @@
+﻿@using PushtoGo.Models
+@model OrderInformation
+@{
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script type='text/javascript'
+            src='http://code.jquery.com/jquery-1.8.3.js'></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <style type='text/css'>
+
+    </style>
+    <script type='text/javascript'>
+        $(window).load(function () {
+            boxes = $('.well')
+            maxHeight = Math.max.apply(Math, boxes.map(function () {
+                return $(this).height();
+            }).get());
+            boxes.height(window.innerHeight/2);
+        });
+    </script>
+</head>
+<body>
+    @*<h2>Album: @Model.userid</h2>*@
+    <h2>Push Button Status</h2>
+   
+    <div class="col-sm-2">
+        <div class="well sidebar-nav">
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Active ", "Index", "Home")</li>
+
+                    <li>@Html.ActionLink("In Route", "About", "Home")</li>
+
+                    <li>@Html.ActionLink("Completed", "Contact", "Home")</li>
+
+                    <li>@Html.ActionLink("search", "Contact", "Home")</li>
+
+                    <li>@Html.ActionLink("Reports", "Contact", "Home")</li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row flex">
+        <div class="col-md-9">
+            <div class="panel panel-default">
+                <div class="panel-heading">Title</div>
+                <div class="panel-body">
+                    Content here..
+                    This one is the tallest of the panels..
+
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+                    Quisque mauris augue, molestie tincidunt. Auctor accumsan. Aliquam in felis sit amet augue.
+                </div>
+                <div class="panel-footer"><button class="btn btn-default btn-block">Button</button></div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">Panel with panel-primary class</div>
+                <div class="panel-body">Panel Content</div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">Title</div>
+                <div class="panel-body">
+                    Content here..
+                    This one is the tallest of the panels..
+
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+                    Quisque mauris augue, molestie tincidunt. Auctor accumsan. Aliquam in felis sit amet augue.
+                </div>
+                <div class="panel-footer"><button class="btn btn-default btn-block">Button</button></div>
+            </div>
+            </div>
+        </div>
+        
+</body>
+</html>
