@@ -1,76 +1,10 @@
 ﻿@using PushtoGo.Models
-<script type='text/javascript'>
-    $(document).ready(function () {
 
-        var currentDisplaystatus = "ACTIVE";
-        function ProcessMenuClick() {
-            
-            $("#divActiveorders").load('@(Url.Action("ActiveOrders", "OrderStatus",null, Request.Url.Scheme))?categoryId=' + currentDisplaystatus);
-        }
-
-        $('#active').click(function () {
-            currentDisplaystatus = "ACTIVE";
-            ProcessMenuClick();
-         
-        });
-        $('#inRoute').click(function () {
-            currentDisplaystatus = "IN-ROUTE";
-            ProcessMenuClick()
-       
-
-           
-
-        });
-        $('#completed').click(function () {
-            currentDisplaystatus = "COMPLETED";
-            ProcessMenuClick();       
-      
-
-
-        });
-
-        $('#dropdownMenuMove').click(function () {
-            
-            $("input[type='checkbox']:checked").each(function () {
-
-                var orderValue = $(this).closest("td").closest("tr").find('#diplayedorder').html();
-                $.ajax({
-                    type: "POST",
-                    url: '@Url.Action("UpdateOrders", "OrderStatus")',
-                    data: { orderid: orderValue, status: currentDisplaystatus },
-                    success: function (data) {
-                        if (data.success = "true") {
-                            ProcessMenuClick();
-                        }
-                    }
-                });
-            });
-
-        });
-       
-        $("table input[type='checkbox']").on('change', function () {
-           
-            if (!$("input[type='checkbox']:checked").val()) {       
-               
-                $('#dropdownMenuMove').attr('disabled', 'disabled')
-               
-                  
-                }
-            else {
-       
-                $('#dropdownMenuMove').removeAttr('disabled')
-               
-            }
-           
-
-        });
-
-
-            });
-</script>
 
 <table class="table table-inbox table-hover">
     <tbody>
+        <h1>"0000000"</h1>
+        <h1>@ViewBag.todisplay</h1>
         @foreach (var orders in Model.lstorder)
         {
             var arr = orders.Split(' ');

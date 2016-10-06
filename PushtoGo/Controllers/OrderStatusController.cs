@@ -5,6 +5,7 @@ using Amazon.Runtime;
 using PushtoGo.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -29,18 +30,20 @@ namespace PushtoGo.Controllers
             return View("Index");
         }
 
-        public ActionResult ActiveOrders(string categoryId)
+        public async Task<ActionResult> ActiveOrders(string categoryId)
         {
+            Debug.WriteLine($"{categoryId} = {DateTime.Now.ToString()}");
+            Debug.WriteLine("====");
             OrderInformation orderInformation = new OrderInformation();
-            orderInformation.lstorder = new List<string>();
-            
+             orderInformation.lstorder = new List<string>();
 
-          //  ReadOrders(categoryId);
-           // foreach (var order in activeOrder)
-             //   orderInformation.lstorder.Add(order);
 
-            orderInformation.lstorder.Add(DateTime.Now.ToString()+ DateTime.Now.ToString()+ DateTime.Now.ToString());
+              ReadOrders(categoryId);
+             foreach (var order in activeOrder)
+               orderInformation.lstorder.Add(order);
 
+            //orderInformation.lstorder.Add(DateTime.Now.ToString()+ DateTime.Now.ToString()+ DateTime.Now.ToString());
+            ViewBag.todisplay = categoryId;
             return View(orderInformation);
         }
         public void ReadOrders(string orderstatus)
